@@ -15,9 +15,9 @@ how real trading infrastructure parses and distributes market data.
 - [ ] Tests + CI
 
 ## Build
-\`\`\`bash
+```bash
 mkdir build && cd build
 cmake ..
 make
 ./feed_handler
-\`\`\`
+```
