@@ -1,8 +1,8 @@
 #include "parser.h"
+#include "order_book.h"
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include <iomanip>
 
 std::vector<uint8_t> read_file(const std::string& path) {
     std::ifstream in(path, std::ios::binary | std::ios::ate);
@@ -45,8 +45,18 @@ int main() {
         auto messages = FeedParser::parse_all(data.data(), data.size());
 
         std::cout << "Parsed " << messages.size() << " messages:\n\n";
+
+        OrderBook book;
         for (const auto& msg : messages) {
             print_message(msg);
+
+            switch (msg.type) {
+                case MessageType::Add:     book.apply_add(msg.add); break;
+                case MessageType::Delete:  book.apply_delete(msg.del); break;
+                case MessageType::Execute: book.apply_execute(msg.exec); break;
+                default: break;
+            }
+            book.print_top_of_book();
         }
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << "\n";
