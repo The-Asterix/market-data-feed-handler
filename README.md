@@ -7,7 +7,7 @@ how real trading infrastructure parses and distributes market data.
 ## Roadmap
 - [x] Project setup
 - [x] Define binary message protocol
-- [ ] Binary parser
+- [x] Binary parser
 - [ ] In-memory order book
 - [ ] Socket-based publisher
 - [ ] Multithreaded pipeline
