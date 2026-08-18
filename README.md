@@ -10,7 +10,7 @@ how real trading infrastructure parses and distributes market data.
 - [x] Binary parser
 - [x] In-memory order book
 - [x] Socket-based publisher
-- [ ] Multithreaded pipeline
+- [x] Multithreaded pipeline
 - [ ] Latency/throughput benchmarks
 - [ ] Tests + CI
 

@@ -9,7 +9,9 @@ find_package(Threads REQUIRED)
 
 add_executable(feed_handler src/main.cpp src/parser.cpp src/order_book.cpp)
 add_executable(generate_data src/generate_sample_data.cpp)
+
 add_executable(publisher src/publisher.cpp src/network.cpp)
 target_link_libraries(publisher Threads::Threads)
 
 add_executable(subscriber src/subscriber.cpp src/parser.cpp src/order_book.cpp src/network.cpp)
+target_link_libraries(subscriber Threads::Threads)
