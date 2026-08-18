@@ -1,5 +1,7 @@
 # Market Data Feed Handler
 
+![CI](https://github.com/The-Asterix/market-data-feed-handler/actions/workflows/ci.yml/badge.svg)
+
 A low-latency market data feed handler in C++, simulating a simplified
 NASDAQ ITCH-style binary protocol. Built as a learning project to explore
 how real trading infrastructure parses and distributes market data.
@@ -12,7 +14,7 @@ how real trading infrastructure parses and distributes market data.
 - [x] Socket-based publisher
 - [x] Multithreaded pipeline
 - [x] Latency/throughput benchmarks
-- [ ] Tests + CI
+- [x] Tests + CI
 
 ## Build
 ```bash
