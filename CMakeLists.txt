@@ -4,9 +4,6 @@ project(MarketDataFeedHandler CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Release-level optimization for realistic benchmark numbers.
-# Without this, an unoptimized debug build will report much slower,
-# misleading numbers.
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
@@ -24,3 +21,25 @@ add_executable(subscriber src/subscriber.cpp src/parser.cpp src/order_book.cpp s
 target_link_libraries(subscriber Threads::Threads)
 
 add_executable(benchmark src/benchmark.cpp src/parser.cpp src/order_book.cpp)
+
+# ---- Testing ----
+include(FetchContent)
+FetchContent_Declare(
+    Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG v3.5.2
+)
+FetchContent_MakeAvailable(Catch2)
+
+enable_testing()
+add_executable(unit_tests
+    tests/test_parser.cpp
+    tests/test_order_book.cpp
+    src/parser.cpp
+    src/order_book.cpp
+)
+target_link_libraries(unit_tests PRIVATE Catch2::Catch2WithMain)
+
+include(CTest)
+include(Catch)
+catch_discover_tests(unit_tests)
