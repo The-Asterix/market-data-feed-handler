@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/The-Asterix/market-data-feed-handler/actions/workflows/ci.yml/badge.svg)
 
-A low-latency market data feed handler written in C++, simulating a simplified NASDAQ ITCH-style binary protocol — the kind of infrastructure real exchanges and trading firms use to distribute and consume live order data. Built as a hands-on deep dive into low-latency systems design: binary protocols, multithreaded pipelines, and network programming.
+A low-latency market data feed handler written in C++, simulating a simplified NASDAQ ITCH-style binary protocol - the kind of infrastructure real exchanges and trading firms use to distribute and consume live order data. Built as a hands-on deep dive into low-latency systems design: binary protocols, multithreaded pipelines, and network programming.
 
 ## What this project actually does
 
@@ -15,7 +15,7 @@ A low-latency market data feed handler written in C++, simulating a simplified N
 
 ## Why binary, not JSON
 
-Real exchange feeds don't use JSON — every byte and every microsecond matters. This project encodes messages as fixed-layout binary structs (`#pragma pack(1)`) and parses them with direct byte offsets, mirroring how real feed handlers are built.
+Real exchange feeds don't use JSON - every byte and every microsecond matters. This project encodes messages as fixed-layout binary structs (`#pragma pack(1)`) and parses them with direct byte offsets, mirroring how real feed handlers are built.
 
 ## Architecture
 
